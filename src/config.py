@@ -1,0 +1,14 @@
+embedding_file_path = 'glove.6B.300d.txt'
+embedding_dim = 300
+vocab_size = 100000
+seq_length = 40
+batch_size = 1024
+epochs = 50
+lstm_size = 128
+dense_size = 1024
+dense_layers = 1
+dropout = 0.2
+dual_embedding = False
+embedding_type = 'non trainable'
+epochs = 100
+word_index_file = "word_index.pkl"
