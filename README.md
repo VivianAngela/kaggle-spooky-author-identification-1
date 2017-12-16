@@ -9,3 +9,6 @@ Code for my submission to the [Kaggle Spooky Author Identification Competition](
 * Keras + Tensorflow
 * Spacy
 * numpy
+
+### Results
+The model obtained a moderate score of 0.29 validation loss and 0.401 test loss(tested on kaggle).
