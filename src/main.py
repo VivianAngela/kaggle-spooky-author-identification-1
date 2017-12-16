@@ -42,33 +42,6 @@ if args.mode == 'train':
   keras.utils.plot_model(model, to_file='model.png')
   train(model, data)
   
-elif args.mode == 'make_templates':
-  answer_file_path = os.path.join(conf['data_dir'], 'answers.txt')
-  output_file_path = os.path.join(conf['data_dir'], 'encoded_answers.txt')
-  print "creating answer templates"
-
-  data = Data(conf)
-  model = get_model(conf, data)
-  weights_file = conf['model_to_load']
-
-  if weights_file == None or weights_file.strip() == '':
-    print 'No weights found to load model. Exiting...'
-  else:
-    model.load_weights(weights_file)
-
-    with open(answer_file_path) as answer_file, open(output_file_path, 'w') as output_file:
-      answers = answer_file.read().splitlines()
-      encoded_answers = encode_answers(model, answers, conf, embedding)
-      for i in encoded_answers:
-        for j in i:
-          output_file.write(str(j))
-          output_file.write(' ')
-        output_file.write('\n')
-  
-    create_template_clusters(conf, 750) #30 clusters
-    create_template_answers(conf)
-    print "answer templates created"
-
 elif args.mode == 'predict':
   data = Data()
   model = get_model(data)
